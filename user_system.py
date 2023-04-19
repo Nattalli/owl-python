@@ -1,6 +1,6 @@
 from owlready2 import *
 
-onto = get_ontology("http://test.org/onto.owl")
+onto = get_ontology("https://test.org/onto.owl")
 
 class User(Thing):
     namespace = onto
@@ -62,8 +62,8 @@ with onto:
         domain = [User]
         range = [User]
 
-def can_communicate(first_user, second_user):
-    if first_user.hasAgeGroup == second_user.hasAgeGroup:
+def can_communicate(user_first: User, user_second: User) -> bool:
+    if user_first.hasAgeGroup == user_second.hasAgeGroup:
         return True
     return False
 
